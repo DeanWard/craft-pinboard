@@ -1,0 +1,109 @@
+.pinboard-field-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-bottom: 1rem;
+  padding:10px;
+  margin-top: 20px;
+
+  .pinboard-field-left {
+    width: 250px;
+    padding-right: 10px;
+    .field {
+      margin-top: 10px!important;
+    }
+  }
+  .pinboard-field-right {
+    flex-grow: 1;
+    width: calc(100% - 250px);
+    
+  }
+
+  .canvas {
+    border-radius: 0 0 8px 8px;
+    position: relative;
+    .backdrop {
+      position: absolute;
+      top: 0;
+      left: 0;
+      img {
+        max-width: 100%;
+        border-radius: 0 0 8px 8px;
+      }
+    }
+    .pins {
+      .pin {
+        position: absolute;
+        cursor: grab;
+        background-color: #000;
+        border: 3px solid white;
+        filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.5));
+        border-radius: 20px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        white-space: nowrap;
+        transform: translateX(-50%) translateY(-50%);
+        opacity: 0.999;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+
+        &.hide {
+          opacity: 0;
+        }
+
+        .label {
+          display: none;
+        }
+      }
+    }
+
+    .pin-tool-tip {
+      position: absolute;
+      background-color: #4ca397;
+      color: white;
+      border-radius: 5px;
+      border: 2px solid white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      opacity: 0;
+      transform: translate(-50%, calc(-100% - 10px));
+      width: 300px;
+
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      pointer-events: none;
+      padding: 10px 20px;
+      transition: all 0.3s;
+    }
+  }
+
+  .pinPallete {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 10px;
+    padding:20px;
+    background-color: #e6ecf5;
+    border-radius: 8px 8px 0 0;
+    .pin {
+      padding: 10px 20px;
+      border-radius: 20px;
+      margin-right: 5px;
+      cursor: grab;
+      background-color: white;
+      transform: 'translate(0, 0)';
+      opacity: 0.999;
+
+      &.hide {
+        opacity: 0.4;
+      }
+
+      &.noDrag {
+        cursor: not-allowed;
+        pointer-events: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{% import '_includes/forms.twig' as forms %}
+
+<div id="{{field.id}}">
+
+  
+  {% if not sources.assets %}
+    {{ forms.field({
+      label: "Backdrop Sources"|t,
+    }, '<p class="error">' ~ "There are no assets sources defined."|t ~ '</p>') }}
+  {% else %}
+    {{ forms.checkboxSelectField({
+      label: "Backdrop Sources"|t,
+      instructions: "Select the asset sources that should be used for the canvas selector.|t",
+      id: 'backdropSources',
+      name: 'backdropSources',
+      options: sources.assets,
+      values: field.backdropSources,
+      required: true,
+    }) }}
+  {% endif %}
+
+  {# entry sources #}
+  {% if not sources.entries %}
+    {{ forms.field({
+        label: "Entry Sources"|t,
+    }, '<p class="error">' ~ "There are no entry sources defined."|t ~ '</p>') }}
+  {% else %}
+    {{ forms.checkboxSelectField({
+      label: "Entry Sources",
+      instructions: "Select which entry sources user can add to the pin board.",
+      id: 'entrySources',
+      name: 'entrySources',
+      options: sources.entries,
+      values: field.entrySources
+    }) }}
+  {% endif %}
+
+  {# user sources #}
+  {% if not sources.users %}
+    {{ forms.field({
+        label: "User Sources"|t,
+    }, '<p class="error">' ~ "There are no user sources defined."|t ~ '</p>') }}
+  {% else %}
+    {{ forms.checkboxSelectField({
+      label: "User Sources"|t,
+      instructions: "Select which user sources user can add to the pin board.",
+      id: 'userSources',
+      name: 'userSources',
+      options: sources.users,
+      values: field.userSources
+    }) }}
+  {% endif %}
+
+  {# category sources #}
+  {% if not sources.categories %}
+    {{ forms.field({
+        label: "Category Sources"|t,
+    }, '<p class="error">' ~ "There are no category sources defined."|t ~ '</p>') }}
+  {% else %}
+    {{ forms.checkboxSelectField({
+      label: "Category Sources"|t,
+      instructions: "Select which category sources user can add to the pin board.",
+      id: 'categorySources',
+      name: 'categorySources',
+      options: sources.categories,
+      values: field.categorySources
+    }) }}
+  {% endif %}
+
+</div>

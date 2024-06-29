@@ -1,0 +1,84 @@
+{% import "_includes/forms" as forms %}
+
+{{
+  forms.elementSelectField({
+    id: id ~ '-backdropSelect',
+    name: name ~ '[backdropId]',
+    label: '' |t,
+    elementType: backdropElementType,
+    criteria: {
+      'kind': [],
+      'site': site
+    },
+    sources: sources.backdrops,
+    jsClass: 'Craft.AssetSelectInput',
+    selectionLabel: "Select backdrop" |t,
+    limit: 1,
+    elements: backdropElement,
+  })
+}}
+
+<div class="pinboard-field-wrapper">
+  <div class="pinboard-field-left">
+    {% if pinSources.entrySources is not empty %}
+    <h3 class="mb-0">Entries</h3>
+    {{
+      forms.elementSelectField({
+        id: id ~ '-entrySelect',
+        name: name ~ '[pins][entries]',
+        label: '' |t,
+        elementType: entryElementType,
+        criteria: {
+          'site': site
+        },
+        sources: pinSources.entrySources,
+        jsClass: 'Craft.AssetSelectInput',
+        selectionLabel: "Select Entries" |t,
+        elements: pins.entries,
+        class: 'mt-0'
+      })
+    }}
+    {% endif %} {% if pinSources.userSources is not empty %}
+    <h3 class="mb-0">Users</h3>
+    {{
+      forms.elementSelectField({
+        id: id ~ '-userSelect',
+        name: name ~ '[pins][users]',
+        label: '' |t,
+        elementType: userElementType,
+        criteria: {
+          'site': site
+        },
+        sources: pinSources.userSources,
+        jsClass: 'Craft.AssetSelectInput',
+        selectionLabel: "Select Users" |t,
+        elements: pins.users,
+        class: 'mt-0'
+      })
+    }}
+    {% endif %} {% if pinSources.categorySources is not empty %}
+    <h3 class="mb-0">Categories</h3>
+    {{
+      forms.elementSelectField({
+        id: id ~ '-categorySelect',
+        name: name ~ '[pins][categories]',
+        label: '' |t,
+        elementType: categoryElementType,
+        criteria: {
+          'site': site
+        },
+        sources: pinSources.categorySources,
+        jsClass: 'Craft.AssetSelectInput',
+        selectionLabel: "Select Categories" |t,
+        elements: pins.categories,
+        class: 'mt-0'
+      })
+    }}
+    {% endif %}
+  </div>
+  {% set backdropURL = null %}
+  {% if backdropElement|length %}
+    {% set backdropURL = backdropElement[0].url %}
+  {% endif %}
+  <div id="vue-app-{{ namespacedId }}" class="pinboard-field-right" data-name="{{ name }}" data-id="{{ id }}" data-namespacedid="{{ namespacedId }}" data-field="{{ field }}" data-value="{{ value | json_encode }}" data-pins="{{pins | json_encode}}" data-url="{{ backdropURL }}"></div>
+</div>
