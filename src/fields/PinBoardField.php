@@ -244,7 +244,7 @@ class PinBoardField extends Field
         $view->registerJs("window.dispatchEvent(new CustomEvent('bootPinbaordField', { detail: 'vue-app-$namespacedId' }));", $view::POS_END);
         $backdropElement = null;
 
-        if ($value['backdropId']) {
+        if ($value['backdropId'] ?? null) {
             $backdropElement = Craft::$app->getElements()->getElementById($value['backdropId'][0]);
         }
 
