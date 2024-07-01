@@ -3,7 +3,7 @@
   "description": "A flexible Craft CMS field which allows content editors to create and manage interactive images for location maps, product callouts, feature callouts, and more.",
   "type": "craft-plugin",
   "license": "proprietary",
-  "version": "1.0.1",
+  "version": "5.0.0",
   "support": {
     "email": "craft-plugin-support@oveio.io",
     "issues": "https://github.com/deanward/craft-pinboard/issues?state=open",
