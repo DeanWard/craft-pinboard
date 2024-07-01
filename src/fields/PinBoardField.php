@@ -170,7 +170,7 @@ class PinBoardField extends Field
         return $categorySources;
     }
 
-    public function normalizeValue(mixed $value, ?ElementInterface $element): mixed
+    public function normalizeValue(mixed $value, ElementInterface $element = null): mixed
     {
         if (is_string($value)) {
             $value = json_decode($value, true);
@@ -235,7 +235,7 @@ class PinBoardField extends Field
         ];
     }
 
-    protected function inputHtml(mixed $value, ?ElementInterface $element, bool $inline): string
+    protected function inputHtml(mixed $value, ?ElementInterface $element = null): string
     {
         $site = Craft::$app->getSites()->getCurrentSite();
         $view = Craft::$app->getView();

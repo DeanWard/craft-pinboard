@@ -3,7 +3,7 @@
   "description": "A flexible Craft CMS field which allows content editors to create and manage interactive images for location maps, product callouts, feature callouts, and more.",
   "type": "craft-plugin",
   "license": "proprietary",
-  "version": "1.0.1",
+  "version": "1.0.1b",
   "support": {
     "email": "craft-plugin-support@oveio.io",
     "issues": "https://github.com/deanward/craft-pinboard/issues?state=open",
@@ -12,8 +12,8 @@
     "rss": "https://github.com/deanward/craft-pinboard/releases.atom"
   },
   "require": {
-    "php": ">=8.2",
-    "craftcms/cms": "^5.2.0"
+    "php": ">=8",
+    "craftcms/cms": "^4"
   },
   "require-dev": {
     "craftcms/ecs": "dev-main",
@@ -36,6 +36,7 @@
     "fix-cs": "ecs check --ansi --fix",
     "phpstan": "phpstan --memory-limit=1G"
   },
+  
   "config": {
     "sort-packages": true,
     "platform": {
